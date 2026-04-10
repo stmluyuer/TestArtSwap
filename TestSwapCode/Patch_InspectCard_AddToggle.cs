@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Nodes.Screens;
+using MegaCrit.Sts2.Core.Entities.Cards;
 
 namespace TestSwap.TestSwapCode
 {
@@ -81,6 +82,8 @@ namespace TestSwap.TestSwapCode
 
                     UpdateTick(ticked, notTicked, isOn);
 
+                    RefreshAllVisibleCards(screen);
+
                     // 🔥 强制刷新卡图
                     AccessTools.Method(typeof(NInspectCardScreen), "UpdateCardDisplay")
                         .Invoke(screen, null);
@@ -102,6 +105,39 @@ namespace TestSwap.TestSwapCode
                 .Field<NCard>("_card").Value;
 
             return card?.Model?.Id.ToString();
+        }
+
+        private static void RefreshAllVisibleCards(NInspectCardScreen screen)
+        {
+            var root = screen.GetTree()?.Root;
+            if (root == null) return;
+
+            foreach (var card in FindAllCards(root))
+            {
+                RefreshCard(card);
+            }
+        }
+
+        private static IEnumerable<NCard> FindAllCards(Node node)
+        {
+            if (node is NCard card)
+                yield return card;
+
+            foreach (var child in node.GetChildren())
+            {
+                if (child is Node childNode)
+                {
+                    foreach (var childCard in FindAllCards(childNode))
+                        yield return childCard;
+                }
+            }
+        }
+
+        private static void RefreshCard(NCard card)
+        {
+            if (card.Model == null) return;
+
+            card.UpdateVisuals(card.DisplayingPile, CardPreviewMode.Normal);
         }
     }
 }
