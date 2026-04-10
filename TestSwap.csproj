@@ -1,0 +1,156 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>true</ImplicitUsings>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <!-- =========================
+         ⭐ 关键：稳定主路径（必须有）
+    ========================== -->
+    <Sts2Dir>E:\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2</Sts2Dir>
+    <Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir>
+    <ModsPath>$(Sts2Dir)\mods\</ModsPath>
+
+    <DefaultItemExcludes>packages/**</DefaultItemExcludes>
+    <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
+    <PathMap>$(AppOutputBase)=.\</PathMap>
+  </PropertyGroup>
+
+  <!-- =========================
+       OS 标记（保留扩展能力）
+  ========================== -->
+  <PropertyGroup>
+    <IsWindows Condition="$([MSBuild]::IsOSPlatform('Windows'))">true</IsWindows>
+    <IsLinux Condition="$([MSBuild]::IsOSPlatform('Linux'))">true</IsLinux>
+    <IsOSX Condition="$([MSBuild]::IsOSPlatform('OSX'))">true</IsOSX>
+  </PropertyGroup>
+
+  <!-- =========================
+       Steam 自动检测（带 fallback，不会炸）
+  ========================== -->
+  <PropertyGroup>
+
+    <AutoSteamPath>$(registry:HKEY_CURRENT_USER\Software\Valve\Steam@SteamPath)</AutoSteamPath>
+
+    <SteamLibraryPath Condition="'$(AutoSteamPath)' != ''">
+      $(AutoSteamPath)
+    </SteamLibraryPath>
+
+    <!-- fallback -->
+    <SteamLibraryPath Condition="'$(SteamLibraryPath)' == ''">
+      E:/SteamLibrary/steamapps
+    </SteamLibraryPath>
+
+  </PropertyGroup>
+
+  <!-- =========================
+       Godot 路径（可选）
+  ========================== -->
+  <PropertyGroup>
+    <GodotPath Condition="'$(GodotPath)' == ''">
+      D:/modding/sts2/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe
+    </GodotPath>
+  </PropertyGroup>
+
+  <!-- =========================
+       References（核心：publicize）
+  ========================== -->
+  <ItemGroup>
+
+    <Reference Include="sts2">
+      <HintPath>$(Sts2DataDir)\sts2.dll</HintPath>
+      <Private>false</Private>
+      <Publicize>True</Publicize>
+    </Reference>
+
+    <Reference Include="0Harmony">
+      <HintPath>$(Sts2DataDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <Reference Include="BaseLib">
+      <HintPath>$(Sts2Dir)\mods\BaseLib\BaseLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+  </ItemGroup>
+
+  <!-- =========================
+       Mod Analyzer（编译期检查）
+  ========================== -->
+  <ItemGroup>
+    <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
+  </ItemGroup>
+
+  <!-- =========================
+       Publicizer（核心能力）
+  ========================== -->
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- =========================
+       资源排除（避免编译污染）
+  ========================== -->
+  <ItemGroup>
+    <Compile Remove="TestSwap/**" />
+    <Compile Remove="materials/**" />
+    <Compile Remove="shaders/**" />
+    <Compile Remove="images/**" />
+
+    <EmbeddedResource Remove="**/*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="TestSwap.json" />
+    <None Include="project.godot" />
+    <None Include="TestSwap/**" />
+  </ItemGroup>
+
+  <!-- =========================
+       构建后：复制 DLL + JSON
+  ========================== -->
+  <Target Name="CopyToModsFolderOnBuild" AfterTargets="Build">
+
+    <Message Text="Copying mod to mods folder..." Importance="high" />
+
+    <MakeDir Directories="$(ModsPath)$(MSBuildProjectName)/" />
+
+    <Copy SourceFiles="$(TargetPath)"
+          DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+
+    <Copy SourceFiles="$(MSBuildProjectDirectory)/TestSwap.json"
+          DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+
+  </Target>
+
+  <!-- =========================
+       Godot PCK 导出
+  ========================== -->
+  <Target Name="GodotPublish"
+          AfterTargets="Publish"
+          Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
+
+    <Message Text="Exporting Godot .pck..." Importance="high" />
+
+    <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack BasicExport &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
+          EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
+          ContinueOnError="WarnAndContinue" />
+
+  </Target>
+
+  <Target Name="GodotPublishSkipped"
+          AfterTargets="Publish"
+          Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')">
+
+    <Message Text="Skipping Godot export (GodotPath missing)" Importance="high" />
+
+  </Target>
+
+</Project>
