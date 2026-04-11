@@ -31,6 +31,10 @@ packages/
 *.nupkg
 *.nuget/
 
+# Local template and helper folders
+.template.config/
+nexus/
+
 # Generated mod output
 TestArtSwap/
 
