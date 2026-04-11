@@ -1,0 +1,11 @@
+{
+  "id": "TestArtSwap",
+  "name": "TestArtSwap",
+  "author": "TestArtSwap",
+  "description": "类似于一代测试画风一样，替换掉游戏中的卡图",
+  "version": "v0.0.3",
+  "has_pck": false,
+  "has_dll": true,
+  "dependencies": ["BaseLib"],
+  "affects_gameplay": false
+}

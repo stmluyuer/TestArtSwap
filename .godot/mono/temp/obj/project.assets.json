@@ -158,19 +158,19 @@
     ]
   },
   "packageFolders": {
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages": {}
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\sts2 github\\TestSwap\\TestSwap.csproj",
-      "projectName": "TestSwap",
-      "projectPath": "D:\\Desktop\\sts2 github\\TestSwap\\TestSwap.csproj",
-      "packagesPath": "D:\\Desktop\\sts2 github\\TestSwap\\packages",
-      "outputPath": "D:\\Desktop\\sts2 github\\TestSwap\\.godot\\mono\\temp\\obj\\",
+      "projectUniqueName": "D:\\Desktop\\sts2 github\\TestArtSwap\\TestArtSwap.csproj",
+      "projectName": "TestArtSwap",
+      "projectPath": "D:\\Desktop\\sts2 github\\TestArtSwap\\TestArtSwap.csproj",
+      "packagesPath": "D:\\Desktop\\sts2 github\\TestArtSwap\\packages",
+      "outputPath": "D:\\Desktop\\sts2 github\\TestArtSwap\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\Desktop\\sts2 github\\TestSwap\\NuGet.Config",
+        "D:\\Desktop\\sts2 github\\TestArtSwap\\NuGet.Config",
         "C:\\Users\\权辉\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

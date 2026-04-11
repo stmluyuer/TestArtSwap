@@ -1,0 +1,48 @@
+# Visual Studio / Rider / IDE
+.vs/
+.vscode/
+.idea/
+*.sln.DotSettings.user
+*.csproj.user
+*.user
+*.userosscache
+*.suo
+*.pidb
+*.svclog
+
+# Build output
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+
+# Godot / Mono
+.godot/
+*.import
+*.mono
+*.tmp
+*.tres.import
+
+# NuGet / package caches
+packages/
+*.nupkg
+*.nuget/
+
+# Generated mod output
+TestArtSwap/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Other
+*.db
+*.db-journal
+*.bak
+*.orig
+*.tmp
+*~
