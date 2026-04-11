@@ -1,17 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "jk1Fba1aDJU=",
+  "dgSpecHash": "YsBBKKorHXM=",
   "success": true,
-  "projectFilePath": "D:\\Desktop\\sts2 github\\TestSwap\\TestSwap.csproj",
+  "projectFilePath": "D:\\Desktop\\sts2 github\\TestArtSwap\\TestArtSwap.csproj",
   "expectedPackageFiles": [
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages\\alchyr.sts2.modanalyzers\\0.1.7\\alchyr.sts2.modanalyzers.0.1.7.nupkg.sha512",
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages\\bepinex.assemblypublicizer.msbuild\\0.4.3\\bepinex.assemblypublicizer.msbuild.0.4.3.nupkg.sha512",
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages\\godot.sourcegenerators\\4.5.1\\godot.sourcegenerators.4.5.1.nupkg.sha512",
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages\\godotsharp\\4.5.1\\godotsharp.4.5.1.nupkg.sha512",
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages\\godotsharpeditor\\4.5.1\\godotsharpeditor.4.5.1.nupkg.sha512",
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages\\microsoft.netcore.app.ref\\9.0.14\\microsoft.netcore.app.ref.9.0.14.nupkg.sha512",
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages\\microsoft.windowsdesktop.app.ref\\9.0.14\\microsoft.windowsdesktop.app.ref.9.0.14.nupkg.sha512",
-    "D:\\Desktop\\sts2 github\\TestSwap\\packages\\microsoft.aspnetcore.app.ref\\9.0.14\\microsoft.aspnetcore.app.ref.9.0.14.nupkg.sha512"
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages\\alchyr.sts2.modanalyzers\\0.1.7\\alchyr.sts2.modanalyzers.0.1.7.nupkg.sha512",
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages\\bepinex.assemblypublicizer.msbuild\\0.4.3\\bepinex.assemblypublicizer.msbuild.0.4.3.nupkg.sha512",
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages\\godot.sourcegenerators\\4.5.1\\godot.sourcegenerators.4.5.1.nupkg.sha512",
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages\\godotsharp\\4.5.1\\godotsharp.4.5.1.nupkg.sha512",
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages\\godotsharpeditor\\4.5.1\\godotsharpeditor.4.5.1.nupkg.sha512",
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages\\microsoft.netcore.app.ref\\9.0.14\\microsoft.netcore.app.ref.9.0.14.nupkg.sha512",
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages\\microsoft.windowsdesktop.app.ref\\9.0.14\\microsoft.windowsdesktop.app.ref.9.0.14.nupkg.sha512",
+    "D:\\Desktop\\sts2 github\\TestArtSwap\\packages\\microsoft.aspnetcore.app.ref\\9.0.14\\microsoft.aspnetcore.app.ref.9.0.14.nupkg.sha512"
   ],
   "logs": []
 }

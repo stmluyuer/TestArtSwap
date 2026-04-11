@@ -6,7 +6,7 @@
     <LangVersion>12.0</LangVersion>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-
+  
     <!-- =========================
          ⭐ 关键：稳定主路径（必须有）
     ========================== -->
@@ -17,6 +17,10 @@
     <DefaultItemExcludes>packages/**</DefaultItemExcludes>
     <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
     <PathMap>$(AppOutputBase)=.\</PathMap>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <!-- =========================
@@ -99,7 +103,7 @@
        资源排除（避免编译污染）
   ========================== -->
   <ItemGroup>
-    <Compile Remove="TestSwap/**" />
+    <Compile Remove="TestArtSwap/**" />
     <Compile Remove="materials/**" />
     <Compile Remove="shaders/**" />
     <Compile Remove="images/**" />
@@ -108,9 +112,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="TestSwap.json" />
+    <None Include="TestArtSwap.json" />
     <None Include="project.godot" />
-    <None Include="TestSwap/**" />
+    <None Include="TestArtSwap/**" />
   </ItemGroup>
 
   <!-- =========================
@@ -125,7 +129,7 @@
     <Copy SourceFiles="$(TargetPath)"
           DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
 
-    <Copy SourceFiles="$(MSBuildProjectDirectory)/TestSwap.json"
+    <Copy SourceFiles="$(MSBuildProjectDirectory)/TestArtSwap.json"
           DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
 
   </Target>

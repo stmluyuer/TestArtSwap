@@ -22,7 +22,7 @@ public static class Patch_UpdateToggleState
             var card = Traverse.Create(__instance)
                 .Field<NCard>("_card").Value;
 
-            string id = card?.Model?.Id.ToString();
+            string? id = card?.Model?.Id.ToString();
             if (string.IsNullOrEmpty(id)) return;
 
             bool isOn = BetaArtState.IsEnabled(id);
@@ -33,7 +33,7 @@ public static class Patch_UpdateToggleState
         }
         catch (Exception e)
         {
-            Log.Error($"[MyMod] Toggle刷新失败: {e}");
+            Log.Error($"Toggle刷新失败: {e}");
         }
     }
 }

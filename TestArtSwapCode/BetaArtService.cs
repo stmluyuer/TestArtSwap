@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Models;
 
 public static class BetaArtService
 {
-    public static Texture2D GetTexture(CardModel model)
+    public static Texture2D? GetTexture(CardModel model)
     {
         if (model == null) return null;
 
@@ -14,7 +14,7 @@ public static class BetaArtService
         if (!BetaArtState.IsEnabled(cardId))
             return model.Portrait;
 
-        // 1️⃣ 反射 BetaPortraitPath
+        // 反射 BetaPortraitPath
         try
         {
             var betaPath = HarmonyLib.Traverse
@@ -27,11 +27,11 @@ public static class BetaArtService
         }
         catch { }
 
-        // 2️⃣ fallback 构建路径
+        // fallback 构建路径
         try
         {
-            string pool = model.Pool?.Title?.ToLowerInvariant();
-            string id = model.Id.Entry?.ToLowerInvariant();
+            string? pool = model.Pool?.Title?.ToLowerInvariant();
+            string? id = model.Id.Entry?.ToLowerInvariant();
 
             if (!string.IsNullOrEmpty(pool) && !string.IsNullOrEmpty(id))
             {
@@ -44,7 +44,7 @@ public static class BetaArtService
         }
         catch { }
 
-        // 3️⃣ fallback 默认
+        // fallback 默认
         return model.Portrait;
     }
 }

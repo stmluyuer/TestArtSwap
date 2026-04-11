@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Godot;
+using TestArtSwap.TestArtSwapCode;
 
 public static class BetaArtState
 {
@@ -7,7 +9,12 @@ public static class BetaArtState
 
     public static bool IsEnabled(string id)
     {
-        return id != null && CardSettings.TryGetValue(id, out var v) && v;
+        if (id == null)
+            return TestArtSwapConfig.EnableGlobalBetaArt;
+
+        return CardSettings.TryGetValue(id, out var enabled)
+            ? enabled
+            : TestArtSwapConfig.EnableGlobalBetaArt;
     }
 
     public static void Set(string id, bool enabled)
@@ -16,7 +23,7 @@ public static class BetaArtState
         CardSettings[id] = enabled;
     }
 
-    public static Texture2D GetOrLoad(string path)
+    public static Texture2D? GetOrLoad(string path)
     {
         if (string.IsNullOrEmpty(path)) return null;
 
@@ -29,4 +36,5 @@ public static class BetaArtState
         Cache[path] = tex;
         return tex;
     }
+
 }

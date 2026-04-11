@@ -10,7 +10,7 @@ using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Nodes.Screens;
 using MegaCrit.Sts2.Core.Entities.Cards;
 
-namespace TestSwap.TestSwapCode
+namespace TestArtSwap.TestArtSwapCode
 {
     [HarmonyPatch(typeof(NInspectCardScreen), "_Ready")]
     public static class Patch_InspectCard_AddToggle
@@ -62,8 +62,9 @@ namespace TestSwap.TestSwapCode
             var ticked = visuals.GetNode<CanvasItem>("Ticked");
             var notTicked = visuals.GetNode<CanvasItem>("NotTicked");
 
-            string cardId = GetCardId(screen);
+            string cardId = GetCardId(screen) ?? string.Empty;
             bool isOn = BetaArtState.IsEnabled(cardId);
+
 
             UpdateTick(ticked, notTicked, isOn);
 
@@ -73,7 +74,7 @@ namespace TestSwap.TestSwapCode
                     mb.Pressed &&
                     mb.ButtonIndex == MouseButton.Left)
                 {
-                    string id = GetCardId(screen);
+                    string id = GetCardId(screen) ?? string.Empty;
                     if (string.IsNullOrEmpty(id)) return;
 
                     isOn = !isOn;
@@ -99,7 +100,7 @@ namespace TestSwap.TestSwapCode
             if (n != null) n.Visible = !on;
         }
 
-        private static string GetCardId(NInspectCardScreen screen)
+        private static string? GetCardId(NInspectCardScreen screen)
         {
             var card = Traverse.Create(screen)
                 .Field<NCard>("_card").Value;

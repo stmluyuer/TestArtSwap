@@ -18,7 +18,7 @@ public static class Patch_NCard_UpdateVisuals
 
             __instance._portrait.Texture = tex;
 
-            // （可选）ancient
+            // ancient
             var ancient = Traverse.Create(__instance)
                 .Field<TextureRect>("_ancientPortrait").Value;
 
