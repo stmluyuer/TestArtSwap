@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<title>TestArtSwap — two card artworks and swap arrows</title>
+<rect width="512" height="512" rx="112" fill="#202B3B"/>
+<g transform="rotate(-10 213 247)">
+<rect x="110" y="110" width="174" height="240" rx="22" fill="#B9D9D7"/>
+<rect x="127" y="127" width="140" height="164" rx="11" fill="#3A777E"/>
+<path d="m128 271 40-66 28 35 24-48 47 79v20H128Z" fill="#83B6B6"/>
+<circle cx="164" cy="166" r="17" fill="#EDE6CA"/>
+<path d="M146 316h101" stroke="#3A777E" stroke-width="12" stroke-linecap="round"/>
+</g>
+<g transform="rotate(9 307 287)">
+<rect x="223" y="170" width="174" height="240" rx="22" fill="#F4D4BC"/>
+<rect x="240" y="187" width="140" height="164" rx="11" fill="#B5685C"/>
+<path d="m240 331 35-62 32 33 29-67 44 96v20H240Z" fill="#E9AA86"/>
+<circle cx="278" cy="225" r="17" fill="#F8E5C6"/>
+<path d="M259 376h101" stroke="#B5685C" stroke-width="12" stroke-linecap="round"/>
+</g>
+<path d="M286 100q58 0 85 43m-2-35 5 39-39-4M226 416q-60 0-89-43m1 35-5-39 39 4" fill="none" stroke="#F4EDE0" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

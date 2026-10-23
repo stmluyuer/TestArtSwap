@@ -1,6 +1,18 @@
+<img src="docs/images/icon.png" alt="TestArtSwap：双卡面与切换箭头图标" width="88" height="88" align="right">
+
 # TestArtSwap
 
 TestArtSwap 是一个针对 Slay the Spire 2 的 Godot/.NET Mod。它在卡牌检视界面增加“测试卡图”开关，支持按卡牌单独切换 Beta 艺术图，并提供全局开关控制测试画风显示。
+
+## 实际效果
+
+在“先制打击”的卡牌检视界面开启“测试卡图”，再关闭恢复原画：
+
+![TestArtSwap 切换演示：原画、测试画、恢复原画](docs/images/toggle-v0.3.0.gif)
+
+[查看原画与测试画的左右对比](docs/images/comparison-v0.3.0.png)
+
+录制使用 GitHub 发布包 [v0.3.0](https://github.com/stmluyuer/TestArtSwap/releases/tag/v0.3.0)、Slay the Spire 2 v0.111.0 和 BaseLib v3.4.7，画面来自游戏实际运行。
 
 ## 功能
 
