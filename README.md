@@ -10,6 +10,15 @@ TestArtSwap 是一个针对 Slay the Spire 2 的 Godot/.NET Mod。它在卡牌�
 - 自动加载 `BetaPortraitPath` 或预设 Beta 卡图路径
 - 使用 `HarmonyLib` 注入、`BaseLib` 配置，以及 Godot/.NET 技术栈
 
+## 下载安装
+
+1. 退出游戏，并先安装 `BaseLib`。
+2. 从 [Releases](https://github.com/stmluyuer/TestArtSwap/releases/latest) 下载 `TestArtSwap.zip`，不要下载 GitHub 自动生成的源码压缩包。
+3. 将 ZIP 内的 `TestArtSwap` 文件夹完整解压到游戏根目录的 `mods/` 下。目录应为 `mods/TestArtSwap/TestArtSwap.dll` 和 `mods/TestArtSwap/TestArtSwap.json`。
+4. 启动游戏，在卡牌检视界面查看“测试卡图”按钮。
+
+使用发布包不需要安装开发工具。下面的 Godot/.NET 环境和路径配置只用于从源码构建。
+
 ## 目录说明
 
 - `TestArtSwap.csproj` - 项目文件，包含编译与复制到 `mods/` 的配置
@@ -34,7 +43,7 @@ TestArtSwap 是一个针对 Slay the Spire 2 的 Godot/.NET Mod。它在卡牌�
    - `GodotPath`（可选，用于导出 Godot `.pck`）
 2. 在 Visual Studio 或 Godot 编辑器中构建项目
 3. 构建完成后，会自动复制 `TestArtSwap.dll` 和 `TestArtSwap.json` 到 `$(ModsPath)/TestArtSwap/`
-4. 启动游戏，进入 `mods/` 文件夹即可加载该 Mod
+4. 重启游戏加载 Mod；`mods/` 是安装目录，不是游戏内菜单。
 
 ## 使用说明
 
